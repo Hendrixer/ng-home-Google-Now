@@ -1,8 +1,9 @@
 angular.module('MeApp')
 
-.controller('HomeCtrl', [$scope, function($scope) {
+.controller('HomeCtrl', function($scope) {
   $scope.template = 'Home';
-}])
-.controller('Projects', [$scope, function($scope) {
+})
+
+.controller('Projects', function($scope) {
   $scope.template = 'Projects';
-}]);
+});
