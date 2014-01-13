@@ -4,6 +4,6 @@ angular.module('MeApp')
   $scope.template = 'Home';
 })
 
-.controller('Projects', function($scope) {
+.controller('ProjectsCtrl', function($scope) {
   $scope.template = 'Projects';
 });

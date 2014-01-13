@@ -8,7 +8,7 @@ angular.module('MeApp', ['ngRoute'])
     })
     .when('/projects', {
       templateUrl: '../views/projects.html',
-      controller: 'Projects.html'
+      controller: 'ProjectsCtrl'
     })
     .otherwise({
       redirectTo: '/'
