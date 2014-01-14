@@ -1,7 +1,33 @@
-/* css */
+body {
+  padding: 2%;
+  background-color: #F5F5F9;
+}
 
-.home {
-  width: 100%;
-  background: #01C7E2;
-  opacity: 0.5;
+.inset-text {
+  color: grey;
+  text-shadow: 1px 2px 1px white;
+}
+.header {
+  border-bottom: lightgrey 1px solid;
+}
+
+.pic {
+  width: 35%;
+  margin-bottom: 3%;
+  opacity: 0.8;
+}
+
+.card {
+  background-color: white;
+  box-shadow: -1px 1px 3px 1px lightgrey;
+  padding: 2%;
+  margin-bottom: 3%;
+}
+
+.loop {
+  color: #0ACDC7;
+}
+
+ul {
+  list-style: none;
 }
