@@ -1,24 +1,46 @@
+<div class='jumbotron'>
+  <section class='container'>
+    <div class='row'>
+      <div class='form-group col-xs-5 col-md-offset-4'>
+        <input class='form-control' placeholder='search me' type='text'>
+      </div>
+    </div>
+  </section>
+</div>
+
 <div class='container'>
-  <div class='row'>
+
+  <section class='row'>
     <div class='card'>
       <div class='col-xs-12 header'>
         <h1 class='inset-text'>I'm Scott Moss and I am a <span class='loop'>{{ facts }}</span></h1>
         <div class='row'>
-          <div class='col-xs-4 col-md-offset-5'>
+          <div class='col-xs-4 col-md-offset-4'>
             <img class='pic img-circle' src="https://scontent-a-sjc.xx.fbcdn.net/hphotos-ash3/1512392_10200442635868510_61973413_n.jpg">
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class='row'>
+  </section>
+
+  <section class='row'>
     <div class='card'>
       <div class='col-xs-12'>
-        <h3 class="inset-text">Contact me</h3>
+        <h2 class="inset-text">Contact me</h2>
         <ul class='contact' ng-repeat='contact in contacts'>
           <li><a ng-href="{{ contact.url }}"><img ng-src="{{ contact.img }}"></a></li>
         </ul>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class='row'>
+    <div class='card'>
+      <div class='col-xs-12'>
+        <h2 class='inset-text'>Recent Projects</h2>
+
+      </div>
+    </div>
+  </section>
+
 </div>

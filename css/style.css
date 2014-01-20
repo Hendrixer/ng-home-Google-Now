@@ -1,14 +1,28 @@
 body {
-  padding: 2%;
-  background-color: #F5F5F9;
+  background-color: #ecf0f1;
+  background-image: url('../assets/background.png');
 }
 
 .inset-text {
   color: grey;
   text-shadow: 1px 2px 1px white;
 }
-.header {
-  border-bottom: lightgrey 1px solid;
+.jumbotron {
+  background-image: url('../assets/header-background.jpg');
+  background-size: 100% 100%;
+
+}
+
+.hit {
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+ul li {
+  display: inline-block;
 }
 
 .pic {
@@ -22,12 +36,10 @@ body {
   box-shadow: -1px 1px 3px 1px lightgrey;
   padding: 2%;
   margin-bottom: 3%;
+  text-align: center;
+  border-radius: 3px;
 }
 
 .loop {
   color: #0ACDC7;
-}
-
-ul {
-  list-style: none;
 }
