@@ -2,7 +2,10 @@ body {
   background-color: #ecf0f1;
   background-image: url('../assets/background.png');
 }
-
+.body {
+  padding: 2%;
+  margin: auto auto;
+}
 .inset-text {
   color: grey;
   text-shadow: 1px 2px 1px white;
@@ -35,7 +38,7 @@ ul li {
   background-color: white;
   box-shadow: -1px 1px 3px 1px lightgrey;
   padding: 2%;
-  margin-bottom: 3%;
+  margin-bottom: 1%;
   text-align: center;
   border-radius: 3px;
 }
