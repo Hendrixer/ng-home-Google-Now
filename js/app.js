@@ -1,4 +1,4 @@
-angular.module('MeApp', ['ngRoute', 'ngAnimate'])
+angular.module('MeApp', ['ngRoute'])
 
 .config(function($routeProvider) {
   $routeProvider
