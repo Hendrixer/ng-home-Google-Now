@@ -84,8 +84,8 @@
   transform: translateY(60px);
   -ms-transform: translateY(60px);
   -webkit-transform: translateY(60px);
-  transition-duration: 250ms;
-  -webkit-transition-duration: 250ms;
+  transition-duration: 700ms;
+  -webkit-transition-duration: 800ms;
   opacity: 0;
 }
 /* line 117, ../sass/ng-animation.scss */
@@ -100,8 +100,8 @@
   transform: translateY(0);
   -ms-transform: translateY(0);
   -webkit-transform: translateY(0);
-  transition-duration: 250ms;
-  -webkit-transition-duration: 250ms;
+  transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
   opacity: 1;
 }
 /* line 128, ../sass/ng-animation.scss */
