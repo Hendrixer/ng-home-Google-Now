@@ -1,15 +1,5 @@
 <div class='body container'>
   <div ng-repeat='card in cards | orderBy:"content" | filter:lookUp' class='slide-top'>
-    <!-- <div ng-switch on='header.card'>
-      <div ng-switch-when='yolo'>
-        <div ng-include='"/views/cards/cards-yolo.html"'></div>
-      </div>
-      <div ng-switch-when='about'>
-        <div ng-include='"/views/cards/cards-about.html"'></div>
-      </div>
-      <div ng-switch-when='info'>
-        <div ng-include='"/views/cards/cards-info.html"'></div>
-      </div> -->
     <card title='{{ card.user_name }}' type="{{ card.card_type }}" url="{{ card.url }}">
       <p> {{ card.content }} </p>
     </card>

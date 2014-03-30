@@ -7,9 +7,6 @@ angular.module('Home.cards')
         method: 'GET',
         url: '/api/cards'
       });
-      // .then(cb, function(reason){
-      //   console.error(reason);
-      // });
     },
     oneCard: function(id){
       return $http({
