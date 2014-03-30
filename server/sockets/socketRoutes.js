@@ -23,7 +23,7 @@ var stream = T.stream('user');
 
 // event listener on stream
 stream.on('tweet', function (tweet){
-  if(tweet.user.screen_name === 'scotups'){
+  if(tweet.user.screen_name === process.ENV.TWITTER_HANDLE){
     tweetJob.queue(tweet, twit);
   }
 });
@@ -40,7 +40,6 @@ module.exports = function(socket, io){
     que them up fist and then send a socket event
   */
   twit.on('tweet', function (queueTweet){
-    console.log('event success');
     queueTweet.tweetCard = true;
     newCard.format(queueTweet);
     console.log(newCard);
