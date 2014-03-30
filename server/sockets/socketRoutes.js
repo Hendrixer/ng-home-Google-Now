@@ -31,6 +31,7 @@ stream.on('tweet', function (tweet){
 // exports routes for sockets
 module.exports = function(socket, io){
   socket.emit('connected', {message: 'client connected'});
+
   // socket.on('get tweets', function(){
   //   controller.alltweets(socket, T);
   // });
