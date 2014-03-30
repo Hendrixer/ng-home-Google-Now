@@ -21,7 +21,7 @@ Card.prototype.format = function(data) {
     this.content = data.text;
     this.asset = data.user.profile_img_url;
     this.user_name = '@'+data.user.screen_name;
-    this.url = 'https://twitter.com/'+this.user_name;
+    this.url = 'https://twitter.com/'+data.user.screen_name;
   } else if (data.codeCard){
 
   } else if(data.blogCard){
