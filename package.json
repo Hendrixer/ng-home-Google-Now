@@ -1,0 +1,37 @@
+{
+  "name": "ng-home-Google-Now",
+  "version": "0.0.0",
+  "description": "home",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hendrixer/ng-home-Google-Now.git"
+  },
+  "keywords": [
+    "node",
+    "angular",
+    "mean"
+  ],
+  "author": "Scott Moss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hendrixer/ng-home-Google-Now/issues"
+  },
+  "homepage": "https://github.com/Hendrixer/ng-home-Google-Now",
+  "dependencies": {
+    "express": "^3.5.1",
+    "mongoose": "^3.8.8",
+    "twit": "^1.1.12",
+    "socket.io": "^0.9.16",
+    "q": "^1.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "connect-livereload": "^0.3.2",
+    "tiny-lr": "0.0.5",
+    "gulp-livereload": "^1.2.0"
+  }
+}
