@@ -1,9 +1,9 @@
 var gulp        = require('gulp'),
     server      = require('tiny-lr')(),
     refresh     = require('gulp-livereload'),
-    mocha       = require('gulp-mocha'),
-    app         = require('./server/server.js'),
-    lrPort      = 35729;
+    mocha       = require('gulp-mocha');
+    // app         = require('./server/server.js'),
+    // lrPort      = 35729;
 
 // collect paths
 var paths = {
@@ -25,10 +25,10 @@ gulp.task('test', function(){
 });
 
 // serve express server
-gulp.task('serve', function(){
-  app.use(require('connect-livereload')());
-  app.listen(app.get('port'));
-});
+// gulp.task('serve', function(){
+//   app.use(require('connect-livereload')());
+//   app.listen(app.get('port'));
+// });
 
 // setup task to reload server on any file change in client path
 gulp.task('client', function(){
@@ -37,12 +37,17 @@ gulp.task('client', function(){
 });
 
 // default task to serve then watch for changes
-gulp.task('default', ['serve'], function(){
-  server.listen(lrPort, function(err){
-    if(err) {return console.error(err);}
 
-    gulp.watch(paths.client.app, function(){
-      gulp.run('client');
-    });
-  });
-});
+// gulp.task('te', function(){
+//   gulp.run(['cardUnit']);
+// });
+
+// gulp.task('default', ['serve'], function(){
+//   server.listen(lrPort, function(err){
+//     if(err) {return console.error(err);}
+
+//     gulp.watch(paths.client.app, function(){
+//       gulp.run('client');
+//     });
+//   });
+// });

@@ -48,15 +48,17 @@ TweetQueue.prototype.queue = function(item, event) {
   if(!this.storage[id]){
     this.storage[id] = 1;
     event.emit('tweet', item);
-    this.size++;
+    if(this.size === 0){
+      this.size = 1;
+    } else if(this.size > 0){
+      this.size++;
+    }
     if(this.size >= 5){
       this.reset();
     }
-    console.log(this.storage);
   } else if(this.storage[id]){
     this.storage[id]++;
     this.size++;
-    console.log('size', this.size);
     if(this.size >= 5){
       this.reset();
     }
