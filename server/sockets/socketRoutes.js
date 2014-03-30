@@ -23,7 +23,7 @@ var stream = T.stream('user');
 
 // event listener on stream
 stream.on('tweet', function (tweet){
-  if(tweet.user.screen_name === process.ENV.TWITTER_HANDLE){
+  if(tweet.user.screen_name === process.env.TWITTER_HANDLE){
     tweetJob.queue(tweet, twit);
   }
 });
@@ -31,9 +31,9 @@ stream.on('tweet', function (tweet){
 // exports routes for sockets
 module.exports = function(socket, io){
   socket.emit('connected', {message: 'client connected'});
-  socket.on('get tweets', function(){
-    controller.alltweets(socket, T);
-  });
+  // socket.on('get tweets', function(){
+  //   controller.alltweets(socket, T);
+  // });
 
   /*
     Possible to get more than one tweet from twitter at the same time
