@@ -4,27 +4,28 @@ var gulp        = require('gulp'),
     app         = require('./server/server.js'),
     lrPort      = 35729;
 
-var paths = ['./client/src/**/*.js', './client/src/**/*.html'];
+// collect paths
+var paths = ['./client/src/**/*.js', './client/src/**/*.html', '!client/lib/'];
 
+// serve express server
 gulp.task('serve', function(){
   app.use(require('connect-livereload')());
   app.listen(app.get('port'));
 });
 
-gulp.task('angular', function(){
+// setup task to reload server on any file change in client path
+gulp.task('client', function(){
   gulp.src(paths)
     .pipe(refresh(server));
 });
 
-
-
-
+// default task to serve then watch for changes
 gulp.task('default', ['serve'], function(){
   server.listen(lrPort, function(err){
     if(err) {return console.error(err);}
 
     gulp.watch(paths, function(){
-      gulp.run('angular');
+      gulp.run('client');
     });
   });
 });
