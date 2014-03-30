@@ -32,7 +32,7 @@ stream.on('tweet', function (tweet){
 module.exports = function(socket, io){
   socket.emit('connected', {message: 'client connected'});
   socket.on('get tweets', function(){
-    controller.alltweets(socket, T);
+    controller.allTweets(socket, T);
   });
 
   /*
