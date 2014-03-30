@@ -16,12 +16,13 @@
   ],
   "dependencies": {
     "angular": "~1.2.8",
-    "angular-route": "~1.2.8",
     "bootstrap-css-only": "~3.0.0",
     "angular-animate": "~1.2.9",
-    "angular-ui-router": "~0.2.10"
+    "angular-ui-router": "~0.2.10",
+    "angular-socket-io": "~0.4.1",
+    "socket.io-client": "~0.9.16"
   },
   "resolutions": {
-    "angular": "1.2.8"
+    "angular": "1.2.9"
   }
 }

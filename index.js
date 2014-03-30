@@ -1,17 +1,10 @@
-var express  = require('express'),
-    app      = express();
+var app       = require('./server/server.js'),
+    server    = app.listen(app.get('port')),
+    io        = require('socket.io').listen(server);
 
+io.set('log level', 1);
+io.sockets.on('connection', function(socket){
+  require('./server/sockets/socketRoutes.js')(socket, io);
+});
 
-express.errorLogger = function(err, req, res, next){
-  console.error(err.stack);
-  next();
-};
-
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.errorLogger);
-app.use(app.router);
-app.use(express.static(__dirname));
-
-app.listen(5000);
-console.log('listening on port 5000');
+console.log('Listening on ' + app.get('url') + ':' + app.get('port'));

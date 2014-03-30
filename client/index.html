@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app='Home'>
+  <head>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-css-only/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Scott Moss</title>
+  </head>
+  <body>
+    <ui-view></ui-view>
+
+    <!-- dependencies -->
+    <script type="text/javascript" src='lib/angular/angular.js'></script>
+    <script type="text/javascript" src='lib/angular-animate/angular-animate.js'></script>
+    <script type="text/javascript" src='lib/angular-ui-router/release/angular-ui-router.js'></script>
+    <script type="text/javascript" src="lib/socket.io-client/dist/socket.io.js"></script>
+    <script type="text/javascript" src="lib/angular-socket-io/socket.js"></script>
+
+    <!-- app -->
+    <script type="text/javascript" src='src/app/app.js'></script>
+    <script type="text/javascript" src='src/app/app.controller.js'></script>
+    <script type="text/javascript" src='src/cards/card.js'></script>
+    <script type="text/javascript" src='src/cards/card.controller.js'></script>
+    <script type="text/javascript" src='src/cards/card.directive.js'></script>
+    <script type="text/javascript" src='src/cards/card.service.js'></script>
+  </body>
+</html>

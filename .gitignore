@@ -1,3 +1,5 @@
 node_modules
-server.js
 package.json
+client/lib
+.DS_Stores
+.DS_Store
