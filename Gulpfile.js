@@ -1,14 +1,17 @@
 var gulp        = require('gulp'),
     server      = require('tiny-lr')(),
     refresh     = require('gulp-livereload'),
-    mocha       = require('gulp-mocha');
+    mocha       = require('gulp-mocha'),
+    stylus      = require('gulp-stylus');
     // app         = require('./server/server.js'),
     // lrPort      = 35729;
 
 // collect paths
 var paths = {
   client: {
-    app: ['./client/src/**/*.js', './client/src/**/*.html', '!client/lib/']
+    app: ['./client/src/**/*.js', './client/src/**/*.html', '!client/lib/'],
+    styl: './client/styles/sty/style.styl',
+    css: './client/styles/css/'
   },
   server: {
     specs: {
@@ -18,6 +21,13 @@ var paths = {
     }
   }
 };
+
+
+gulp.task('stylus', function(){
+    gulp.src(paths.client.styl)
+      .pipe(stylus())
+      .pipe(gulp.dest(paths.client.css));
+});
 
 gulp.task('test', function(){
   gulp.src(paths.server.specs.cards.unit)
