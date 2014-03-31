@@ -31,7 +31,7 @@ describe('Card constructor', function(){
       card.format(tweet);
       expect(card.card_type).to.be('Social');
       expect(card.origin).to.be('Twitter');
-      expect(card.user_name).to.be('@scotups');
+      expect(card.header).to.be('@scotups');
       expect(card.url).to.be('https://twitter.com/scotups');
       done();
     });
