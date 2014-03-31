@@ -2,3 +2,4 @@ node_modules
 client/lib
 .DS_Stores
 .DS_Store
+client/styles/sty/
