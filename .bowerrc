@@ -1,3 +1,8 @@
 {
-  "directory": "client/lib"
+  "directory": "client/lib",
+  "storage":{
+  "packages":".bower-cache",
+  "registry": ".bower-registry"
+  },
+  "tmp": ".bower-tmp"
 }
