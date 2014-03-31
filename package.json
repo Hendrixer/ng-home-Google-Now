@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
-    "postinstall": "./node_modules/bower/bin/bower install; ./node_modules/gulp/bin/gulp.js stylus"
+    "postinstall": "./node_modules/bower/bin/bower install;./node_modules/gulp/bin/gulp.js stylus"
   },
   "repository": {
     "type": "git",
