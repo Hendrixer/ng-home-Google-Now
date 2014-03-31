@@ -1,6 +1,6 @@
 <div class='body container'>
   <div ng-repeat='card in cards | orderBy:"content" | filter:lookUp' class='slide-top'>
-    <card title='{{ card.user_name }}' type="{{ card.card_type }}" url="{{ card.url }}">
+    <card title='{{ card.header }}' type="{{ card.card_type }}" url="{{ card.url }}">
       <p> {{ card.content }} </p>
     </card>
   </div>

@@ -4,7 +4,7 @@
 // card class to standardize all info from any 3rd party API
 var Card = function(){
   this.card_type = null;
-  this.user_name = null;
+  this.header = null;
   this.origin = null;
   this.content = null;
   this.meta = [];
@@ -20,7 +20,7 @@ Card.prototype.format = function(data) {
     this.origin = 'Twitter';
     this.content = data.text;
     this.asset = data.user.profile_img_url;
-    this.user_name = '@'+data.user.screen_name;
+    this.header = '@'+data.user.screen_name;
     this.url = 'https://twitter.com/'+data.user.screen_name;
   } else if (data.codeCard){
 

@@ -9,9 +9,11 @@ var CardModel = new Schema({
     type: String,
     required: true
   },
+  header: String,
   asset: String,
   content: String,
   meta: [{type: String}],
+  url: String,
   created: {
     type: Date,
     default: Date.now()
