@@ -4,7 +4,6 @@ var gulp        = require('gulp'),
     mocha       = require('gulp-mocha'),
     stylus      = require('gulp-stylus'),
     notify      = require('gulp-notify'),
-    app         = require('./server/server.js'),
     lrPort      = 35729,
     httpServer, io, gulpSocket;
 
@@ -26,6 +25,7 @@ var paths = {
 
 
 gulp.task('serve', function(){
+  var app = require('./server/server.js');
   app.use(require('connect-livereload')());
   httpServer  = require('http').createServer(app).listen(app.get('port'));
   io          = require('socket.io').listen(httpServer);
@@ -36,17 +36,23 @@ gulp.task('serve', function(){
   });
 });
 
+gulp.task('test', function(){
+  return gulp.src(paths.server.specs)
+    .pipe(mocha({reporter: 'spec'}))
+    .pipe(notify({message: "Specs ran"}));
+});
+
+
 function specChanged(path){
-  gulp.task('unit', function(){
+  return gulp.task('unit', function(){
     gulp.src(path)
       .pipe(mocha({reporter: 'spec'}))
       .pipe(notify({message: 'Card Unit test done'}));
   });
 }
 
-
 function stylesChange(path){
-  gulp.task('stylus', function(){
+  return gulp.task('stylus', function(){
     gulp.src(path)
       .pipe(stylus())
       .pipe(gulp.dest('./client/styles/css/'))
@@ -56,7 +62,7 @@ function stylesChange(path){
 }
 
 function jsChange(path){
-  gulp.task('js', function(){
+  return gulp.task('js', function(){
     gulp.src(path)
       .pipe(refresh(server))
       .pipe(notify({message: 'Angular refreshed'}));
@@ -64,7 +70,7 @@ function jsChange(path){
 }
 
 function htmlChange(path){
-  gulp.task('html', function(){
+  return gulp.task('html', function(){
     gulp.src(path)
       .pipe(refresh(server))
       .pipe(notify({message: 'Views refreshed'}));

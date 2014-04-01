@@ -45,6 +45,7 @@
     "expect.js": "^0.3.1",
     "supertest": "^0.10.0",
     "gulp-stylus": "^0.1.0",
-    "gulp-notify": "^1.2.5"
+    "gulp-notify": "^1.2.5",
+    "gulp-spawn-mocha": "^0.1.3"
   }
 }
