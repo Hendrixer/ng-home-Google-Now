@@ -10,6 +10,7 @@ angular.module('Home.cards')
   });
   $Socket.emit('get tweets');
 
+
   $Socket.on('send tweet', function (data){
     angular.forEach(data, function (tweet){
       $scope.cards.push(tweet);

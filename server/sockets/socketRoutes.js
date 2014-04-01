@@ -32,9 +32,9 @@ stream.on('tweet', function (tweet){
 module.exports = function(socket, io){
   socket.emit('connected', {message: 'client connected'});
 
-  // socket.on('get tweets', function(){
-  //   controller.alltweets(socket, T);
-  // });
+  socket.on('get tweets', function(){
+    controller.allTweets(socket, T);
+  });
 
   /*
     Possible to get more than one tweet from twitter at the same time

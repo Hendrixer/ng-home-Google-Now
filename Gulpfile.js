@@ -61,7 +61,7 @@ function stylesChange(path){
       .pipe(stylus())
       .pipe(gulp.dest('./client/styles/css/'))
       .pipe(refresh(server))
-      .pipe(notify({message: 'Styles refreshed'}));
+      .pipe(notify({message: path + 'Styles refreshed'}));
   });
 }
 
@@ -77,7 +77,7 @@ function htmlChange(path){
   return gulp.task('html', function(){
     gulp.src(path)
       .pipe(refresh(server))
-      .pipe(notify({message: 'Views refreshed'}));
+      .pipe(notify({message: path + 'Views refreshed'}));
   });
 }
 
