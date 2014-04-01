@@ -36,11 +36,13 @@ gulp.task('serve', function(){
   });
 });
 
-gulp.task('test', function(){
-  gulp.src(paths.server.specs)
-    .pipe(mocha({reporter: 'spec'}))
-    .pipe(notify({message: 'Card Unit test done'}));
-});
+function specChanged(path){
+  gulp.task('unit', function(){
+    gulp.src(path)
+      .pipe(mocha({reporter: 'spec'}))
+      .pipe(notify({message: 'Card Unit test done'}));
+  });
+}
 
 
 function stylesChange(path){
@@ -69,8 +71,7 @@ function htmlChange(path){
   });
 }
 
-
-gulp.task('default', ['test', 'serve'], function(){
+gulp.task('watch', function(){
   server.listen(lrPort, function(err){
     if(err) {return console.error(err);}
 
@@ -86,8 +87,15 @@ gulp.task('default', ['test', 'serve'], function(){
     });
 
     gulp.watch(paths.styles, function(e){
-      stylesChange(e.paths);
-      gulp.run('stylus')
+      stylesChange(e.path);
+      gulp.run('stylus');
+    });
+
+    gulp.watch(paths.server.specs, function(e){
+      specChanged(e.path);
+      gulp.run('unit');
     });
   });
 });
+
+gulp.task('default', ['serve', 'watch']);
