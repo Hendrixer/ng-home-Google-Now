@@ -37,7 +37,6 @@ var TweetQueue = function(){
   this.storage = {};
   this.size = 0;
   this.reset = function(){
-    console.log('reset');
     __self.storage = {};
     __self.size = 1;
   };
@@ -63,7 +62,6 @@ TweetQueue.prototype.queue = function(item, event) {
     if(this.size >= 5){
       this.reset();
     }
-    console.log(this.storage);
   }
 };
 

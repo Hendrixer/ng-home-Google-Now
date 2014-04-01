@@ -15,7 +15,11 @@ var paths = {
     './client/src/**/*.js',
     'Gulpfile.js'
   ],
-  html: ['./client/src/**/*.html'],
+  html: [
+  './client/src/**/*.html',
+  './client/src/index.html',
+  './client/src/cards/directiveTemplates/*.html'
+  ],
 
   server: {
     js: ['./server/**/*.js'],

@@ -1,9 +1,9 @@
 .toggle {
-  -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition: all 0 cubic-bezier(0.25, 0.46);
+  -moz-transition: all 0 cubic-bezier(0.25, 0.46);
+  -ms-transition: all 0 cubic-bezier(0.25, 0.46);
+  -o-transition: all 0 cubic-bezier(0.25, 0.46);
+  transition: all 0 cubic-bezier(0.25, 0.46);
   -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
