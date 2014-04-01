@@ -6,6 +6,7 @@ var Card = function(){
   this.card_type = null;
   this.header = null;
   this.origin = null;
+
   this.content = null;
   this.meta = [];
   this.asset = null;

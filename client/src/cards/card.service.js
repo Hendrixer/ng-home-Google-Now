@@ -8,6 +8,7 @@ angular.module('Home.cards')
         url: '/api/cards'
       });
     },
+
     oneCard: function(id){
       return $http({
         method: 'GET',
@@ -17,5 +18,9 @@ angular.module('Home.cards')
   };
 })
 .factory('$Socket', function (socketFactory){
-  return socketFactory();
+  return socketFactory({
+    ioSocket: io.connect('/', {
+      reconnect: true
+    })
+  });
 });

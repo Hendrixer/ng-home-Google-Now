@@ -14,6 +14,7 @@ var CardModel = new Schema({
   content: String,
   meta: [{type: String}],
   url: String,
+
   created: {
     type: Date,
     default: Date.now()

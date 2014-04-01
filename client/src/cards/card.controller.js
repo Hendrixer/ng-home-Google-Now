@@ -8,7 +8,6 @@ angular.module('Home.cards')
       $scope.cards.push(card);
     });
   });
-
   $Socket.emit('get tweets');
 
   $Socket.on('send tweet', function (data){
@@ -18,7 +17,7 @@ angular.module('Home.cards')
   });
 
   $Socket.on('send card', function (data){
-    (function (card){
+    (function (card){ // use an IFIE to take advantage of widnow.console / could use bind
       console.log('got one card', card);
       $scope.cards.push(card);
     }(data));
