@@ -5,6 +5,7 @@ teal            = #0ACDC7
 backGroundUrl   = '../../assets/background.png'
 googleHeaderUrl = '../../assets/header-background.jpg'
 
+@import url(http://fonts.googleapis.com/css?family=Cantarell:400,400italic)
 
 body
   background-color light-grey
@@ -30,9 +31,6 @@ body
   color navy
   text-shadow 1px 2px 1px lightgrey
 
-.hit
-  cursor pointer
-
 .ul
   list-style none
   text-align center
@@ -49,7 +47,52 @@ body
   padding 2%
   margin-bottom 1%
   border-radius 3px
-  color softBlue
+
+.card-icon
+  margin-right 3%
+
+.card-header
+  margin-bottom 2%
+
+.card-span
+  font-size 1.8em
+
+.card-content
+  font-family Cantarell
+
+.card-url
+  color navy
+  &:hover
+    color teal
+    text-decoration none
+
 
 .loop
   color teal
+
+
+@media all and (max-width: 770px) and (min-width: 320px)
+  .container
+    margin-right 4%
+    margin-left 4%
+
+@media all and (max-width: 480px) and (min-width: 320px)
+  .card-span
+    font-size 3em
+  .card
+    margin-bottom 3%
+  .card-content
+    font-size 1.2em
+
+  .search-me
+    margin-top 1%
+    height 15%
+    font-size: 1.2em
+  section
+    &.container
+      margin-right 0
+      margin-left 0
+      padding-right 0
+      padding-left 0
+
+

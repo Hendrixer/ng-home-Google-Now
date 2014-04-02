@@ -11,15 +11,14 @@ angular.module('Home.cards')
   $Socket.emit('get tweets');
 
 
-  $Socket.on('send tweet', function (data){
-    angular.forEach(data, function (tweet){
-      $scope.cards.push(tweet);
-    });
-  });
+  // $Socket.on('send tweet', function (data){
+  //   angular.forEach(data, function (tweet){
+  //     $scope.cards.push(tweet);
+  //   });
+  // });
 
   $Socket.on('send card', function (data){
     (function (card){ // use an IFIE to take advantage of widnow.console / could use bind
-      console.log('got one card', card);
       $scope.cards.push(card);
     }(data));
   });

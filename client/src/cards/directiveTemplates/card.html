@@ -1,10 +1,5 @@
 <section class='row'>
   <div class="card col-xs-12 card-type-{{ type }}">
-    <div>
-      <h1 class="inset-text">
-        <a ng-href="{{ url }}"> {{ title }}</a>
-      </h1>
-      <div class="content" ng-transclude></div>
-    </div>
+    <div class="card-transclude" ng-transclude></div>
   </div>
 </section>

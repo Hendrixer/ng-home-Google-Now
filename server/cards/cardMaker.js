@@ -18,7 +18,7 @@ var Card = function(){
 Card.prototype.format = function(data) {
   if(data.tweetCard){
     this.card_type = 'Social';
-    this.origin = 'Twitter';
+    this.origin = 'twitter';
     this.content = data.text;
     this.asset = data.user.profile_img_url;
     this.header = '@'+data.user.screen_name;

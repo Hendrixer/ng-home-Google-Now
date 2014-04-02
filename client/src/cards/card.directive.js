@@ -4,9 +4,7 @@ angular.module('Home.cards')
   return {
     restrict: 'AE',
     scope: {
-      type: '@',
-      title: '@',
-      url: '@'
+      type: '@'
     },
     templateUrl: '/src/cards/directiveTemplates/card.html',
     transclude: true,

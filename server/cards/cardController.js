@@ -1,12 +1,16 @@
 "use strict";
 
-var Card = require('./cardModel.js');
+var Card    = require('./cardModel.js');
 
 
 module.exports = {
-  allCards: function(req, res){
-    Card.find({}, function(err, cards){
-      res.json(cards);
+  allCards: function(req, res, next){
+    Card.find({}, function (err, cards){
+      if (err){
+        next(err);
+      } else if(cards){
+        res.json(cards);
+      }
     });
   },
 

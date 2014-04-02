@@ -7,4 +7,6 @@ io.sockets.on('connection', function(socket){
   require('./server/sockets/socketRoutes.js')(socket, io);
 });
 
+
+
 console.log('Listening on ' + app.get('url') + ':' + app.get('port'));

@@ -22,7 +22,7 @@ var T = new Twit({
 var stream = T.stream('user');
 
 // event listener on stream
-stream.on('tweet', function (tweet){
+stream.once('tweet', function (tweet){
   if(tweet.user.screen_name === process.env.TWITTER_HANDLE){
     tweetJob.queue(tweet, twit);
   }
@@ -40,11 +40,11 @@ module.exports = function(socket, io){
     Possible to get more than one tweet from twitter at the same time
     que them up fist and then send a socket event
   */
-  twit.on('tweet', function (queueTweet){
+  twit.once('tweet', function (queueTweet){
     queueTweet.tweetCard = true;
     newCard.format(queueTweet);
-    console.log(newCard);
     socket.emit('send card', newCard);
   });
+
 
 };

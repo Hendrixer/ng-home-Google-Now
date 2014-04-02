@@ -1,24 +1,32 @@
 var gulp        = require('gulp'),
+    concat      = require('gulp-concat'),
+    plumber     = require('gulp-plumber'),
     server      = require('tiny-lr')(),
     refresh     = require('gulp-livereload'),
     mocha       = require('gulp-mocha'),
     stylus      = require('gulp-stylus'),
     notify      = require('gulp-notify'),
-    lrPort      = 35729,
-    httpServer, io, gulpSocket;
+    nodemon     = require('gulp-nodemon'),
+    jshint      = require('gulp-jshint'),
+    lrPort      = 35729;
 
 var paths = {
   styles: ['./client/styles/sty/*.styl'],
 
   assets: ['./client/assets/'],
-  js: [
-    './client/src/**/*.js',
-    'Gulpfile.js'
+  scripts: [
+    './client/src/app/app.js',
+    './client/src/app/app.controller.js',
+    './client/src/cards/card.js',
+    './client/src/cards/card.service.js',
+    './client/src/cards/card.directive.js',
+    './client/src/cards/card.controller.js',
+    './client/src/**/*.js'
   ],
   html: [
-  './client/src/**/*.html',
-  './client/src/index.html',
-  './client/src/cards/directiveTemplates/*.html'
+    './client/src/**/*.html',
+    './client/src/index.html',
+    './client/src/cards/directiveTemplates/*.html'
   ],
 
   server: {
@@ -28,84 +36,72 @@ var paths = {
 };
 
 
+// Start express server with nodemon
 gulp.task('serve', function(){
-  var app = require('./server/server.js');
-  app.use(require('connect-livereload')());
-  httpServer  = require('http').createServer(app).listen(app.get('port'));
-  io          = require('socket.io').listen(httpServer);
-  io.set('log level', 1);
-  io.sockets.on('connection', function(socket){
-    gulpSocket = socket;
-    require('./server/sockets/socketRoutes.js')(socket, io);
-  });
+  nodemon({script: 'index.js'})
+    .on('restart', function(){
+      refresh(server);
+    });
 });
 
+
+// lint the scripts
+gulp.task('lint', function(){
+  return gulp.src(paths.scripts)
+    .pipe(plumber())
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(notify({message: 'jshint done'}));
+});
+
+// concat the scripts
+gulp.task('scripts', function(){
+  return gulp.src(paths.scripts)
+    .pipe(plumber())
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('./client/'))
+    .pipe(refresh(server))
+    .pipe(notify({message: 'JS concatenated'}));
+});
+
+// test server specs
 gulp.task('test', function(){
   return gulp.src(paths.server.specs)
     .pipe(mocha({reporter: 'spec'}))
     .pipe(notify({message: "Specs ran"}));
 });
 
+// build stylus
+gulp.task('stylus', function(){
+  return gulp.src(paths.styles)
+    .pipe(plumber())
+    .pipe(stylus())
+    .pipe(gulp.dest('./client/styles/css'))
+    .pipe(refresh(server))
+    .pipe(notify({message: 'stylus done'}));
+});
 
-function specChanged(path){
-  return gulp.task('unit', function(){
-    gulp.src(path)
-      .pipe(mocha({reporter: 'spec'}))
-      .pipe(notify({message: 'Card Unit test done'}));
-  });
-}
+// refresh html
+gulp.task('html', function(){
+  return gulp.src(paths.html)
+    .pipe(refresh(server))
+    .pipe(notify({message: 'Views refreshed'}));
+});
 
-function stylesChange(path){
-  return gulp.task('stylus', function(){
-    gulp.src(path)
-      .pipe(stylus())
-      .pipe(gulp.dest('./client/styles/css/'))
-      .pipe(refresh(server))
-      .pipe(notify({message: path + 'Styles refreshed'}));
-  });
-}
+// build it all
+gulp.task('build', ['stylus', 'scripts', 'lint']);
 
-function jsChange(path){
-  return gulp.task('js', function(){
-    gulp.src(path)
-      .pipe(refresh(server))
-      .pipe(notify({message: 'Angular refreshed'}));
-  });
-}
-
-function htmlChange(path){
-  return gulp.task('html', function(){
-    gulp.src(path)
-      .pipe(refresh(server))
-      .pipe(notify({message: path + 'Views refreshed'}));
-  });
-}
-
-gulp.task('watch', function(){
+// livereolad server
+gulp.task('lr', function(){
   server.listen(lrPort, function(err){
     if(err) {return console.error(err);}
-
-    // gulp.watch(paths.js, ['js']);
-    gulp.watch(paths.js, function(e){
-      jsChange(e.path);
-      gulp.run('js');
-    });
-
-    gulp.watch(paths.html, function(e){
-      htmlChange(e.path);
-      gulp.run('html');
-    });
-
-    gulp.watch(paths.styles, function(e){
-      stylesChange(e.path);
-      gulp.run('stylus');
-    });
-
-    gulp.watch(paths.server.specs, function(e){
-      specChanged(e.path);
-      gulp.run('unit');
-    });
   });
 });
 
-gulp.task('default', ['serve', 'watch']);
+gulp.task('watch', function(){
+  gulp.watch(paths.html, ['html']);
+  gulp.watch(paths.scripts, ['lint', 'scripts']);
+  gulp.watch(paths.styles, ['stylus']);
+});
+
+gulp.task('default', ['test', 'build', 'lr', 'serve', 'watch']);

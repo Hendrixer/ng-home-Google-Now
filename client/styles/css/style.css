@@ -1,3 +1,4 @@
+@import url("http://fonts.googleapis.com/css?family=Cantarell:400,400italic");
 body {
   background-color: #ecf0f1;
   background-image: url("../../assets/background.png");
@@ -22,9 +23,6 @@ body {
   color: #34495e;
   text-shadow: 1px 2px 1px #d3d3d3;
 }
-.hit {
-  cursor: pointer;
-}
 .ul {
   list-style: none;
   text-align: center;
@@ -41,8 +39,54 @@ body {
   padding: 2%;
   margin-bottom: 1%;
   border-radius: 3px;
-  color: #2980b9;
+}
+.card-icon {
+  margin-right: 3%;
+}
+.card-header {
+  margin-bottom: 2%;
+}
+.card-span {
+  font-size: 1.8em;
+}
+.card-content {
+  font-family: Cantarell;
+}
+.card-url {
+  color: #34495e;
+}
+.card-url:hover {
+  color: #0acdc7;
+  text-decoration: none;
 }
 .loop {
   color: #0acdc7;
+}
+@media all and (max-width: 770px) and (min-width: 320px) {
+  .container {
+    margin-right: 4%;
+    margin-left: 4%;
+  }
+}
+@media all and (max-width: 480px) and (min-width: 320px) {
+  .card-span {
+    font-size: 3em;
+  }
+  .card {
+    margin-bottom: 3%;
+  }
+  .card-content {
+    font-size: 1.2em;
+  }
+  .search-me {
+    margin-top: 1%;
+    height: 15%;
+    font-size: 1.2em;
+  }
+  section.container {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
 }

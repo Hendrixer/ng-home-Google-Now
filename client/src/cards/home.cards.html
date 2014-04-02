@@ -1,7 +1,10 @@
 <div class='body container'>
-  <div ng-repeat='card in cards | orderBy:"content" | filter:lookUp' class='slide-top'>
-    <card title='{{ card.header }}' type="{{ card.card_type }}" url="{{ card.url }}">
-      <p> {{ card.content }} </p>
+  <div ng-repeat='card in cards | orderBy:"created" | filter:lookUp' class='slide-top'>
+    <card type="{{ card.card_type }}" >
+      <div class="card-header">
+        <img class='card-icon' ng-src="assets/icons/32/32-{{ card.origin }}.png"><span class='card-span'><a class='card-url'ng-href="{{ card.url }}">{{ card.header }}</a></span>
+      </div>
+      <p class="card-content"> {{ card.content }} </p>
     </card>
   </div>
 </div>
