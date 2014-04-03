@@ -38,7 +38,9 @@ var paths = {
 
 // Start express server with nodemon
 gulp.task('serve', function(){
-  nodemon({script: 'index.js'})
+  nodemon({script: 'index.js',
+          ignore: 'client/'
+  })
     .on('restart', function(){
       refresh(server);
     });

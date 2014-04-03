@@ -2,9 +2,15 @@
   <div ng-repeat='card in cards | orderBy:"created" | filter:lookUp' class='slide-top'>
     <card type="{{ card.card_type }}" >
       <div class="card-header">
-        <img class='card-icon' ng-src="assets/icons/32/32-{{ card.origin }}.png"><span class='card-span'><a class='card-url'ng-href="{{ card.url }}">{{ card.header }}</a></span>
+        <img class='card-icon img-thumbnail' ng-src="assets/icons/32/32-{{ card.origin }}.png" />
+          <span class='card-span'>
+            <a class='card-url'ng-href="{{ card.url }}">{{ card.asset || card.header }}</a>
+          </span>
       </div>
-      <p class="card-content"> {{ card.content }} </p>
+      <div class="card-body row">
+        <p class="card-content col-xs-8"> {{ card.content }} </p>
+        <img ng-if="card.asset" class='col-xs-2 img-rounded img-responsive card-asset' src="assets/projects/{{ card.asset }}.png" />
+      </div>
     </card>
   </div>
 </div>

@@ -22,7 +22,7 @@ var T = new Twit({
 var stream = T.stream('user');
 
 // event listener on stream
-stream.once('tweet', function (tweet){
+stream.on('tweet', function (tweet){
   if(tweet.user.screen_name === process.env.TWITTER_HANDLE){
     tweetJob.queue(tweet, twit);
   }

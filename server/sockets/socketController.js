@@ -6,7 +6,7 @@ var Card  = require('../cards/cardMaker.js')().card,
 module.exports = {
   allTweets: function(socket, T){
     T.get('/statuses/user_timeline',
-      {screen_name: process.env.TWITTER_HANDLE, count: 3},
+      {screen_name: process.env.TWITTER_HANDLE, count: 1},
       function (err, reply){
         reply.forEach(function (tweet){
           tweet.tweetCard = true;

@@ -10,6 +10,7 @@ var CardModel = new Schema({
     required: true
   },
   header: String,
+  origin: String,
   asset: String,
   content: String,
   meta: [{type: String}],
